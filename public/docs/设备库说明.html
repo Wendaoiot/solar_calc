@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>设备库说明</title>
+    <style>
+      body{font-family:Segoe UI, Roboto, "Microsoft Yahei", Arial;line-height:1.6;padding:20px;color:#222}
+      h1,h2{color:#0b86ff}
+      pre{background:#f7f9fc;padding:12px;border-radius:6px}
+      a{color:#0b86ff}
+    </style>
+  </head>
+  <body>
+    <h1>设备库说明</h1>
+    <p>本文件说明应用内设备库的数据来源、更新方式与对低功耗场景的免责声明。</p>
+
+    <h2>1. 数据存放位置</h2>
+    <ul>
+      <li>应用内置（bundle）设备列表位于：<code>src/data/devices.json</code>（用于构建时的默认值）。</li>
+      <li>运行时优先加载外部设备列表：<code>/devices.json</code>（即项目 <code>public/devices.json</code>）。将 <code>devices.json</code> 放在 <code>public</code> 或部署根目录即可在不重建的情况下更新设备库。</li>
+    </ul>
+
+    <h2>2. 动态更新</h2>
+    <p>若需要更新设备库，推荐流程：</p>
+    <ol>
+      <li>在 <code>public/devices.json</code> 中更新或替换内容（部署时直接覆盖）。</li>
+      <li>重启/刷新前端页面，应用会在启动时或刷新时拉取最新的 <code>devices.json</code> 并替换内置库。</li>
+    </ol>
+
+    <h2>3. 数据来源与准确性说明（重要）</h2>
+      <ul>
+        <li>当前设备库为示例与参考值，来源包括公开文档、厂商规格与项目经验值（示例值）。</li>
+      <li>同一类型设备的实际功耗会受型号、配置、运行模式（常开/间歇/待机）、网络频率和环境影响，差异可能较大。</li>
+      <li>我们的主要用户群体倾向于低功耗场景（例如 LoRa/电池供电传感器、红外摄像头等）。为避免给客户造成误导：</li>
+      <ul>
+        <li>请在对外提供建议时，明确标注“典型值仅供参考”；</li>
+        <li>对关键项目（例如用于采购或容量设计）建议使用设备实际供电曲线或现场测试数据进行验证；</li>
+  <li>为保持简洁，本版本设备库只保留典型值（<code>power_typ</code>）与典型运行小时（<code>hours_typ</code>）。应用已实现“保守/典型/乐观”档位切换：当设备条目包含 <code>power_min</code>/<code>power_max</code> 时档位会优先使用 min/max；否则档位会基于 <code>power_typ</code> 应用系数（乐观 0.8，典型 1.0，保守 1.2）。</li>
+      </ul>
+    </ul>
+
+    <h2>4. 建议的维护做法</h2>
+    <p>建议把设备库作为独立的维护文件（JSON），并与版本控制或 CMS/配置管理工具同步：</p>
+    <ul>
+      <li>小团队：通过 PR 更新 <code>public/devices.json</code> 并在 README 中记录来源与变更说明；</li>
+      <li>大规模部署：将设备库托管在配置服务或 CDN，前端在运行时按策略拉取（并做缓存/版本检测）。</li>
+    </ul>
+
+    <h2>5. 若需贡献数据或指定来源</h2>
+    <p>如果你有设备功耗的官方规格或测量数据，请把 JSON 条目以 PR 方式提交到仓库，或提供给我，我可以帮你把条目加入并在文档中注明来源（厂商/测量/经验）。</p>
+
+    <hr />
+    <p>文件位置：<code>docs/设备库说明.md</code></p>
+  </body>
+</html>

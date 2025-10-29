@@ -1,0 +1,29 @@
+[
+  { "id": "lora_sleep", "name": "LoRa 节点（低功耗，睡眠）", "category": "物联网", "power_typ": 0.02, "hours_typ": 24 },
+  { "id": "lora_node", "name": "LoRa 节点（通信活跃）", "category": "物联网", "power_typ": 0.2, "hours_typ": 24 },
+  { "id": "dtu_sleep", "name": "低功耗 DTU/RTU（休眠/自唤醒）", "category": "物联网", "power_typ": 0.05, "hours_typ": 24 },
+  { "id": "dtu_awake", "name": "低功耗 DTU/RTU（无休眠）", "category": "物联网", "power_typ": 0.5, "hours_typ": 24 },
+  { "id": "nbiot_node", "name": "NB‑IoT 设备", "category": "物联网", "power_typ": 0.5, "hours_typ": 24 },
+
+  { "id": "sensor_temp", "name": "温湿度传感器", "category": "传感器", "power_typ": 0.5, "hours_typ": 24 },
+  { "id": "soil_moisture", "name": "土壤水分传感器", "category": "传感器", "power_typ": 0.02, "hours_typ": 24 },
+  { "id": "water_meter", "name": "无线水表（间歇上报）", "category": "传感器", "power_typ": 0.05, "hours_typ": 24 },
+
+  { "id": "4g_router", "name": "4G 路由器", "category": "通信", "power_typ": 8, "hours_typ": 24 },
+  { "id": "lte_modem", "name": "LTE 调制解调器（低功耗模式）", "category": "通信", "power_typ": 3, "hours_typ": 24 },
+
+  { "id": "camera_ir", "name": "红外摄像头 (典型)", "category": "监控", "power_typ": 5, "hours_typ": 24 },
+  { "id": "camera_color", "name": "彩色摄像头 (示例)", "category": "监控", "power_typ": 8, "hours_typ": 24 },
+
+  { "id": "lamp_led", "name": "LED 灯 (典型)", "category": "照明", "power_typ": 10, "hours_typ": 8 },
+  { "id": "led_strip", "name": "灯带 (LED)", "category": "照明", "power_typ": 15, "hours_typ": 6 },
+  { "id": "led_sign", "name": "广告灯箱 (LED)", "category": "照明", "power_typ": 50, "hours_typ": 10 },
+
+  { "id": "fan_small", "name": "小风扇", "category": "设备", "power_typ": 12, "hours_typ": 6 },
+  { "id": "pump_small", "name": "小型水泵 (间歇)", "category": "设备", "power_typ": 60, "hours_typ": 2 },
+  { "id": "pv_heater", "name": "小型加热器 (间歇)", "category": "设备", "power_typ": 150, "hours_typ": 1 },
+
+  { "id": "raspberry", "name": "树莓派 (Raspberry Pi)", "category": "计算", "power_typ": 7, "hours_typ": 24 },
+
+  { "id": "alarm", "name": "警报器 (待机/响铃)", "category": "安全", "power_typ": 2, "hours_typ": 1 }
+]
